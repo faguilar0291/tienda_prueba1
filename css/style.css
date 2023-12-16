@@ -10,7 +10,6 @@
 h1, h2, h3, h4, h5, p, span, input, textarea, ul {
     margin: 0;
     padding: 0;
-    
 }
 
 ul {
@@ -21,3 +20,112 @@ a {
     text-decoration: none;
 }
 
+/* Contenedor wrapper */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: #f5bf0b;
+}
+
+/* aside */
+
+.aside {
+    padding: 2rem;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    /* header */
+
+    .header {
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between
+    }
+
+    .logo {
+        font-weight: 400;
+        font-size: 1.4em;
+    }
+
+    /* footer */
+
+    .footer {
+        color: #c56900;
+        font-size: .7em;
+    }
+
+/* main */
+
+.main {
+    background-color: #fff;
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 3vh 3vw;
+    padding: 2rem;
+}
+
+.main__title {
+    color: #f5bf0b;
+    margin-bottom: 1rem;
+    font-size: 2em;
+}
+
+ /* main__container */
+
+ .main__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+ }
+
+    /* product */
+
+    .product {
+        border-radius: 3vh 3vw;
+        box-shadow: #6e3b019d 5px 10px 10px;
+        background-color: #fff;
+    }
+
+    .product__image {
+        max-width: 80%;
+        margin-left: 10%;
+    }
+
+    .product__info {
+        background-color: #f5bf0b;
+        border-radius: 0 0 3vh 3vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 120px;
+    }
+
+    .product__add {
+        border: 0;
+        border-radius: 1vh;
+        background-color: #fff;
+        text-transform: uppercase;
+        height: 25%;
+        width: 20%;
+        cursor: pointer;
+    }
+
+    .product__add:hover {
+        border: 3px solid #81cf0d;
+        box-shadow: #81cf0d inset 1px 1px 8px;
+    }
+
+    .product__add:active {
+        background-color: #81cf0d;
+        box-shadow: #4c4c4c inset 1px 1px 8px;
+        color: #fff;
+    }
