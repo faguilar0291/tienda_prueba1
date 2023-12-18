@@ -165,7 +165,7 @@ a {
     /* product */
 
     .product {
-        border-radius: 3vh 3vw;
+        border-radius: 3vh;
         box-shadow: #6e3b019d 5px 10px 10px;
         background-color: #d1d0d0;
         display: flex;
