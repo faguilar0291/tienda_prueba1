@@ -49,6 +49,7 @@ const productsMenu = [
 //busco objetos en el DOM
 const productContainer = document.querySelector(".main__container");
 let selectedProducts = document.querySelectorAll(".product__add");
+const cartNumber = document.querySelector(".item--number");
 
 //función para mostrar productos
 
@@ -88,6 +89,31 @@ function loadSelectedProducts() {
     })
 }
 
-function addToCart() {
+//creo el array para los productos que voy a agregar
+const productsInCart = [];
+
+//función para agregar el producto seleccionado al carrito
+function addToCart(e) {
+
     console.log("Se toco un botón");
+
+    const buttonId = e.currentTarget.id;
+    const addedProduct = productsMenu.find(product => product.id === buttonId);
+
+    if (productsInCart.some(product => product.id === buttonId)){
+        const index = productsInCart.findIndex(product => product.id === buttonId);
+        productsInCart[index].quantity++;
+    } else {
+        addedProduct.quantity = 1;
+        productsInCart.push(addedProduct);
+    }
+
+    console.log(productsInCart);
+    refreshNumber();
+}
+
+function refreshNumber() {
+    let cartNumber = productsInCart.reduce((acu, product) => acu + product.quantity, 0);
+    console.log(cartNumber);
+    
 }
