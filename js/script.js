@@ -90,7 +90,16 @@ function loadSelectedProducts() {
 }
 
 //creo el array para los productos que voy a agregar
-const productsInCart = [];
+let productsInCart;
+
+const productsInCartLS = JSON.parse(localStorage.getItem("products-in-cart"));
+
+if (productsInCartLS) {
+    productsInCart = productsInCartLS;
+    refreshNumber();
+} else {
+    productsInCart = [];
+}
 
 //función para agregar el producto seleccionado al carrito
 function addToCart(e) {
@@ -108,12 +117,13 @@ function addToCart(e) {
         productsInCart.push(addedProduct);
     }
 
-    console.log(productsInCart);
     refreshNumber();
+
+    localStorage.setItem("products-in-cart", JSON.stringify(productsInCart))
 }
 
 function refreshNumber() {
-    let cartNumber = productsInCart.reduce((acu, product) => acu + product.quantity, 0);
-    console.log(cartNumber);
-    
+    let cartNumberAdd = productsInCart.reduce((acu, product) => acu + product.quantity, 0);
+    cartNumber.innerText = cartNumberAdd;
 }
+
