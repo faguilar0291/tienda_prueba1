@@ -245,13 +245,13 @@ a {
 
         .product__cart {
             padding: .75rem;
-            padding-r: 1.7rem;
+            padding-right: 1.7rem;
 
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            border-radius: 3vh 3vw;
+            border-radius: 3vh;
 
             box-shadow: #6e3b019d 5px 10px 10px;
             color: #000000;
@@ -260,7 +260,7 @@ a {
         }
 
         .product__cart--image {
-            max-width: 20%;
+            max-height: 80px;
         }
 
         .product__cart--empty {
