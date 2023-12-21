@@ -244,8 +244,9 @@ a {
         /* Product Cart*/
 
         .product__cart {
-            padding: .75rem;
-            padding-right: 1.7rem;
+            padding: 1.2rem;
+            padding-right: 3rem;
+            padding-left: 3rem;
 
             display: flex;
             flex-direction: row;
@@ -260,7 +261,7 @@ a {
         }
 
         .product__cart--image {
-            max-height: 80px;
+            width: 140px;
         }
 
         .product__cart--empty {
@@ -268,6 +269,10 @@ a {
             background-color: transparent;
             color: #e31515;
             cursor: pointer;
+        }
+
+        .product__cart--title {
+            width: 100px;
         }
 
         /* Product cart actions */

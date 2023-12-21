@@ -1,5 +1,7 @@
-const productsInCart = JSON.parse(localStorage.getItem("products-in-cart"));
+let productsInCart = localStorage.getItem("products-in-cart");
+productsInCart = JSON.parse(productsInCart);
 
+const cartNumber = document.querySelector(".item--number");
 const cartEmpty = document.querySelector(".container__cart--empty");
 const productCart = document.querySelector(".products__cart");
 const cartActions = document.querySelector(".products__actions");
@@ -8,7 +10,7 @@ let deleteButtons = document.querySelectorAll(".product__cart--empty");
 
 function loadProductsOnCart() {
     
-    if (productsInCart){
+    if (productsInCart && productsInCart.length > 0){
     
         cartEmpty.classList.add("disabled");
         productCart.classList.remove("disabled");
@@ -18,12 +20,13 @@ function loadProductsOnCart() {
         productCart.innerHTML = "";
     
         productsInCart.forEach(product => {
+
             const figure = document.createElement("figure");
             figure.classList.add("product__cart")
             figure.innerHTML = `
                 <img class="product__cart--image" src="${product.img}" alt="${product.title}">
                 <div class="product__cart--title">
-                    <p>Producto 01</p>
+                    <p>Producto</p>
                     <h3>${product.title}</h3>
                 </div>
                 <div class="product__cart--quantity">
@@ -39,11 +42,11 @@ function loadProductsOnCart() {
                     <h3>$${product.price * product.quantity}</h3>
                 </div>
                 <button class="product__cart--empty" id="${product.id}"><i class="bi bi-trash3-fill"></i></button>
-            
+
             `;
-    
+
             productCart.append(figure);
-    
+
         })
     
     } else {
@@ -56,7 +59,7 @@ function loadProductsOnCart() {
     }
 
     refreshDeleteButtons();
-
+    refreshNumber();
 }
 
 loadProductsOnCart();
@@ -75,7 +78,24 @@ function deleteFromCart(e) {
 
     productsInCart.splice(index, 1);
     loadProductsOnCart();
+
+    localStorage.setItem("products-in-cart", JSON.stringify(productsInCart));
 }
+
+
+/* 
+function refreshNumber() {
+    let cartNumberAdd = productsInCart.reduce((acu, product) => acu + product.quantity, 0);
+    cartNumber.innerText = cartNumberAdd;
+}
+
+let emptyButton = document.querySelector(".product__action--empty");
+emptyButton.addEventListener("click", emptyCart);
+
+function emptyCart() {
+    console.log("Hola");
+}
+*/
 
 
 //container__cart--empty

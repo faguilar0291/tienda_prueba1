@@ -92,10 +92,10 @@ function loadSelectedProducts() {
 //creo el array para los productos que voy a agregar
 let productsInCart;
 
-const productsInCartLS = JSON.parse(localStorage.getItem("products-in-cart"));
+let productsInCartLS = localStorage.getItem("products-in-cart");
 
 if (productsInCartLS) {
-    productsInCart = productsInCartLS;
+    productsInCart = JSON.parse(productsInCartLS);
     refreshNumber();
 } else {
     productsInCart = [];
