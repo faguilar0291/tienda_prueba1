@@ -1,14 +1,19 @@
 let productsInCart = localStorage.getItem("products-in-cart");
 productsInCart = JSON.parse(productsInCart);
 
+
 const cartNumber = document.querySelector(".item--number");
 const cartEmpty = document.querySelector(".container__cart--empty");
 const productCart = document.querySelector(".products__cart");
 const cartActions = document.querySelector(".products__actions");
 const cartBuyed = document.querySelector(".container__cart--buy");
 let deleteButtons = document.querySelectorAll(".product__cart--empty");
+const emptyButton = document.querySelector(".product__actions--empty");
+const buyCartTotal = document.querySelector(".product__actions--buy");
+const cartTotal = document.querySelector("#total");
 
 function loadProductsOnCart() {
+
     
     if (productsInCart && productsInCart.length > 0){
     
@@ -59,7 +64,7 @@ function loadProductsOnCart() {
     }
 
     refreshDeleteButtons();
-    refreshNumber();
+    refreshTotal();
 }
 
 loadProductsOnCart();
@@ -82,23 +87,33 @@ function deleteFromCart(e) {
     localStorage.setItem("products-in-cart", JSON.stringify(productsInCart));
 }
 
-
-/* 
-function refreshNumber() {
-    let cartNumberAdd = productsInCart.reduce((acu, product) => acu + product.quantity, 0);
-    cartNumber.innerText = cartNumberAdd;
-}
-
-let emptyButton = document.querySelector(".product__action--empty");
 emptyButton.addEventListener("click", emptyCart);
 
 function emptyCart() {
-    console.log("Hola");
+
+    productsInCart.length = 0;
+    localStorage.setItem("products-in-cart", JSON.stringify(productsInCart));
+    loadProductsOnCart();
 }
-*/
 
 
-//container__cart--empty
-//products__cart
-//products__actions
+function refreshTotal() {
+    const calculatedTotal = productsInCart.reduce((acc, product) => acc + (product.price * product.quantity), 0);
+    cartTotal.innerText = `$${calculatedTotal}`;
+}
+
+buyCartTotal.addEventListener("click", buyCart);
+
+function buyCart() {
+
+    productsInCart.length = 0;
+    localStorage.setItem("products-in-cart", JSON.stringify(productsInCart));
+    
+    cartEmpty.classList.add("disabled");
+    productCart.classList.add("disabled");
+    cartActions.classList.add("disabled");
+    cartBuyed.classList.remove("disabled");
+}
+
+
 //container__cart--buy
