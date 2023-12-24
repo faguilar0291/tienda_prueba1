@@ -104,8 +104,6 @@ if (productsInCartLS) {
 //función para agregar el producto seleccionado al carrito
 function addToCart(e) {
 
-    console.log("Se toco un botón");
-
     const buttonId = e.currentTarget.id;
     const addedProduct = productsMenu.find(product => product.id === buttonId);
 

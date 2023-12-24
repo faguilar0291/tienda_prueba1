@@ -65,6 +65,7 @@ function loadProductsOnCart() {
 
     refreshDeleteButtons();
     refreshTotal();
+    refreshNumber();
 }
 
 loadProductsOnCart();
@@ -115,5 +116,9 @@ function buyCart() {
     cartBuyed.classList.remove("disabled");
 }
 
+function refreshNumber() {
+    let cartNumberAdd = productsInCart.reduce((acu, product) => acu + product.quantity, 0);
+    cartNumber.innerText = cartNumberAdd;
+}
 
-//container__cart--buy
+
