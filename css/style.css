@@ -20,6 +20,10 @@ a {
     text-decoration: none;
 }
 
+.header__mobile {
+    display: none;
+}
+
 /* Contenedor wrapper */
 
 .wrapper {
@@ -448,7 +452,7 @@ a {
     }
 
     .main__container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     .navbar__button.active::before,
@@ -475,5 +479,10 @@ a {
         font-size: .6em;
         height: 20%;
         width: 70px;
+    }
+
+    .header__mobile {
+        display: flex;
+        
     }
 }
