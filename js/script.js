@@ -48,6 +48,7 @@ const productsMenu = [
 
 //busco objetos en el DOM
 const productContainer = document.querySelector(".main__container");
+const categoryButtons = document.querySelectorAll(".navbar__button");
 let selectedProducts = document.querySelectorAll(".product__add");
 const cartNumber = document.querySelector(".item--number");
 
