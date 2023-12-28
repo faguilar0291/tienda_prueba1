@@ -126,3 +126,4 @@ function refreshNumber() {
     cartNumber.innerText = cartNumberAdd;
 }
 
+/* Contact */

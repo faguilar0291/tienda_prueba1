@@ -414,11 +414,12 @@ a {
     }
 
     .section__info {
-        height: 85%;
+        height: 80vh;
 
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
+        align-items: center;
     }
 
     .socials {
