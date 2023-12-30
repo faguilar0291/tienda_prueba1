@@ -51,6 +51,7 @@ function loadProductsOnCart() {
             `;
 
             productCart.append(figure);
+            modal.append(figure);
 
         })
     
@@ -114,6 +115,8 @@ function buyCart() {
     productCart.classList.add("disabled");
     cartActions.classList.add("disabled");
     cartBuyed.classList.remove("disabled");
+
+    createModal();
 }
 
 function refreshNumber() {
@@ -122,3 +125,45 @@ function refreshNumber() {
 }
 
 
+
+/* MODAL */
+
+
+function createModal() {
+    modalContainer.classList.add("modal__container--visible");
+
+}
+
+
+/*
+productsInCart.forEach(product => {
+
+    const figure = document.createElement("figure");
+    figure.classList.add("product__modal")
+    figure.innerHTML = `
+                <img class="product__modal--image" src="${product.img}" alt="${product.title}">
+                <div class="product__modal--title">
+                    <p>Producto</p>
+                    <h3>${product.title}</h3>
+                </div>
+                <div class="product__modal--quantity">
+                    <p>Cantidad</p>
+                    <h3>${product.quantity}</h3>
+                </div>
+                <div class="product__modal--price">
+                    <p>Precio</p>
+                    <h3>$${product.price}</h3>
+                </div>
+                <div class="product__modal--subtotal">
+                    <p>Subtotal</p>
+                    <h3>$${product.price * product.quantity}</h3>
+                </div>
+                <button class="product__modal--empty" id="${product.id}"><i class="bi bi-trash3-fill"></i></button>
+
+            `;
+
+    modal.append(figure);
+
+})
+
+*/
