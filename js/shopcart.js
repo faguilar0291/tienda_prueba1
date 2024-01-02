@@ -11,6 +11,8 @@ let deleteButtons = document.querySelectorAll(".product__cart--empty");
 const emptyButton = document.querySelector(".product__actions--empty");
 const buyCartTotal = document.querySelector(".product__actions--buy");
 const cartTotal = document.querySelector("#total");
+const modalContainer = document.querySelector(".modal__container");
+const modal = document.querySelector(".modal");
 
 function loadProductsOnCart() {
 
@@ -27,7 +29,7 @@ function loadProductsOnCart() {
         productsInCart.forEach(product => {
 
             const figure = document.createElement("figure");
-            figure.classList.add("product__cart")
+            figure.classList.add("product__cart");
             figure.innerHTML = `
                 <img class="product__cart--image" src="${product.img}" alt="${product.title}">
                 <div class="product__cart--title">
@@ -51,7 +53,6 @@ function loadProductsOnCart() {
             `;
 
             productCart.append(figure);
-            modal.append(figure);
 
         })
     
@@ -131,6 +132,41 @@ function refreshNumber() {
 
 function createModal() {
     modalContainer.classList.add("modal__container--visible");
+
+    const divModal = document.createElement("div");
+    divModal.classList.add("modal__div");
+    divModal.innerHTML = `
+            <h3>Introduce los datos para el envío a domicilio:</h3>
+            <form id="contactForm" class ="formChart" onsubmit="validateForm(event)">
+                <label for="firstName">Calle:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <span id="firstNameError" class="error"></span>
+
+                <br>
+
+                <label for="lastName">Departamento:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <span id="lastNameError" class="error"></span>
+
+                <br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span id="emailError" class="error"></span>
+
+                <br>
+
+                <label for="cellPhone">Celular:</label>
+                <input type="tel" id="cellPhone" name="cellPhone" required>
+                <span id="cellPhoneError" class="error"></span>
+
+                <br>
+
+                <input type="submit" value="Enviar Pedido">
+            </form>
+            `;
+    modal.append(divModal);
+
 
 }
 
